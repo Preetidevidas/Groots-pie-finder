@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class GrootPieFinder {
+    public static List<Integer> findPies(int[] sweetnessLevels, int targetSweetness) {
+        List<Integer> result = new ArrayList<>();
+        int sum = 0;
+        
+        // Iterate over the sweetness levels array
+        for (int i = 0; i < sweetnessLevels.length; i++) {
+            sum += sweetnessLevels[i];
+            result.add(i);
+            
+            // Check if the desired sweetness level is reached
+            if (sum >= targetSweetness) {
+                break;
+            }
+        }
+        
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] sweetnessLevels = {1, 2, 3, 2, 1};
+        int targetSweetness = 6;
+        
+        List<Integer> piesToConsume = findPies(sweetnessLevels, targetSweetness);
+        
+        System.out.println(piesToConsume);
+    }
+}
